@@ -7,7 +7,7 @@ overwrite () {
 }
 
 start () {
-  yarn serve
+  yarn start
 }
 
 setup () {
