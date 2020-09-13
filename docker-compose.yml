@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  front:
+    build:
+      context: .
+      dockerfile: ./docker/front/Dockerfile
+    container_name: react-tutorial-front
+    stdin_open: true
+    # entrypoint: /run.sh
+    ports:
+      - 3000:3000
+    volumes:
+      - ./front:/front:cached
+      - ./front/node_modules:/front/node_modules:delegated
+      - yarn_cache:/usr/local/share/.cache/yarn/v6:cached # `yarn cache dir`
+
+volumes:
+  yarn_cache:
